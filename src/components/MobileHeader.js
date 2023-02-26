@@ -4,7 +4,7 @@ import circleRed from '../images/circleRed.png';
 import circleBlue from '../images/circleBlue.png';
 import circleGreen from '../images/circleGreen.png';
 
-function MobileHeader() {
+function MobileHeader(props) {
     // Toggle Demos Menu
     let demoMenuVisible = false;
     function demoMenu() {
@@ -20,15 +20,53 @@ function MobileHeader() {
         }
     }
 
+    let disableHome;
+    let disableResume;
+    let disableSites;
+
+    if (props.page === "Home") {
+        disableHome = true;
+    } else {
+        disableHome = false;
+    }
+    if (props.page === "Resume") {
+        disableResume = true;
+    } else {
+        disableResume = false;
+    }
+    if (props.page === "Sites") {
+        disableSites = true;
+    } else {
+        disableSites = false;
+    }
+
     return (
         <div id="header">
         <div id="headerHome">
-            <img src={circlePurple}/>
-            <Link to="/">Home</Link>
+            {disableHome ?
+                <Link to="/" onClick={e => e.preventDefault()}>
+                    <img src={circlePurple}/>
+                    <p>Home</p>
+                </Link>
+            :
+                <Link to="/">
+                    <img src={circlePurple}/>
+                    <p>Home</p>
+                </Link>
+            }
         </div>
         <div id="headerResume">
-            <img src={circleRed}/>
-            <Link to="/resume">Resume</Link>
+            {disableResume ?
+                <Link to="/resume" onClick={e => e.preventDefault()}>
+                    <img src={circleRed}/>
+                    <p>Resume</p>
+                </Link>
+            :
+                <Link to="/resume">
+                    <img src={circleRed}/>
+                    <p>Resume</p>
+                </Link>
+            }
         </div>
         <div id="headerSites">
             <img src={circleBlue}/>

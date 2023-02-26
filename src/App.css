@@ -19,6 +19,10 @@
   width: fit-content;
 }
 
+#header a {
+  display: block;
+}
+
 #headerHome, #headerResume, #headerSites, #headerDemos {
   display: inline;
   float: left;
@@ -37,4 +41,28 @@
 #demosMenu a {
   display: block;
   padding: 0.2em 1em;
+}
+
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 2000ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 2000ms;
+}
+
+.content-enter {
+  left: 100vw;
+}
+
+.content-enter-active {
+  left: 0;
+  transition: transform 1500ms ease;
 }
