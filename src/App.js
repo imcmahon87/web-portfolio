@@ -2,6 +2,7 @@ import './App.css';
 import MobileHeader from './components/MobileHeader';
 import Home from './components/Home';
 import Resume from './components/Resume';
+import Sites from './components/Sites';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -16,8 +17,10 @@ function App(props) {
     content = <Home />;
   } else if (props.page === "Resume") {
     content = <Resume />;
+  } else if (props.page === "Sites") {
+    content = <Sites />;
   } else {
-    content = <Resume />;
+    content = <Home />;
   }
     
   return (
@@ -25,8 +28,8 @@ function App(props) {
       <MobileHeader page={props.page}/>
         <SwitchTransition>
           <CSSTransition key={location.key} in={isVisible}
-                timeout={2000}
-                classNames="my-node"
+                timeout={300}
+                classNames="content"
                 unmountOnExit
                 >
             {content}

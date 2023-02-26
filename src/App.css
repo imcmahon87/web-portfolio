@@ -1,16 +1,29 @@
+:root {
+  --backgroundInitial: 0;
+  --backgroundStart: 0;
+  --backgroundEnd: 0;
+  --contentStart: 100vw;
+  --contentMiddle: 0;
+  --contentEnd: -100vw;
+}
+
 #wrapper {
   height: 100vh;
   width: 100vw;
   background-image: url("./images/mobileBackgroundTest.png");
   background-size: 200vw 100vh;
-  background-position-x: -25vw;
+  background-position-x: var(--backgroundInitial);
+}
+
+.wrapper {
+  background-position-x: var(--backgroundStart);
   animation-name: background;
-  animation-duration: 1s;
+  animation-duration: 500ms;
 }
 
 @keyframes background {
-  from {background-position-x: 0;}
-  to {background-position-x: -25vw;}
+  from {background-position-x: var(--backgroundStart);}
+  to {background-position-x: var(--backgroundEnd);}
 }
 
 #header {
@@ -43,26 +56,20 @@
   padding: 0.2em 1em;
 }
 
-.my-node-enter {
-  opacity: 0;
-}
-.my-node-enter-active {
-  opacity: 1;
-  transition: opacity 2000ms;
-}
-.my-node-exit {
-  opacity: 1;
-}
-.my-node-exit-active {
-  opacity: 0;
-  transition: opacity 2000ms;
-}
-
 .content-enter {
-  left: 100vw;
+  transform: translate(var(--contentStart), 0);
 }
 
 .content-enter-active {
-  left: 0;
-  transition: transform 1500ms ease;
+  transform: translate(var(--contentMiddle), 0);
+  transition: transform 300ms ease;
+}
+
+.content-exit {
+  transform: translate(var(--contentMiddle), 0);
+}
+
+.content-exit-active {
+  transform: translate(var(--contentEnd), 0);
+  transition: transform 200ms ease;
 }
