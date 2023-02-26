@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import MobileHeader from './components/MobileHeader';
+import Home from './components/Home';
+import Resume from './components/Resume';
 
-function App() {
+function App(props) {
+  let content;
+  if (props.page === "Home") {
+    content = <Home />;
+  } else if (props.page === "Resume") {
+    content = <Resume />;
+  } else {
+    content = <Resume />;
+  }
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="wrapper">
+      <MobileHeader />
+      {content}
     </div>
   );
 }

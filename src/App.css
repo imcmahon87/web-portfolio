@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+#wrapper {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./images/mobileBackgroundTest.png");
+  background-size: 200vw 100vh;
+  background-position-x: -25vw;
+  animation-name: background;
+  animation-duration: 1s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@keyframes background {
+  from {background-position-x: 0;}
+  to {background-position-x: -25vw;}
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#header {
+  margin: 0 auto;
+  overflow: auto;
+  width: fit-content;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#headerHome, #headerResume, #headerSites, #headerDemos {
+  display: inline;
+  float: left;
+  margin: 0 1em;
 }
 
-.App-link {
-  color: #61dafb;
+#demosMenu {
+  max-height: 0;
+  width: fit-content;
+  transition: max-height .25s ease-out;
+  overflow: hidden;
+  text-align: right;
+  float: right;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#demosMenu a {
+  display: block;
+  padding: 0.2em 1em;
 }
