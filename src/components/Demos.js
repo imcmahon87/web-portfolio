@@ -1,6 +1,6 @@
 function Demos() {
     return (
-        <div>
+        <div id="contentWrapper">
             <h1>Demos</h1>
             <p>Here are some demonstrations</p>
         </div>

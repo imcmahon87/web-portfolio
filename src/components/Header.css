@@ -1,0 +1,79 @@
+#header {
+    margin: 0 auto;
+    overflow: auto;
+    width: 100%;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+.gradient-png {
+    mask-image: linear-gradient(white 75%, transparent);
+    -webkit-mask-image: linear-gradient(white 75%, transparent);
+    background-image: url("../images/background-small.jpg");
+    background-size: 200vw 100vh;
+}
+
+#headerLinks {
+    width: fit-content;
+    margin: 0 auto;
+    overflow: auto;
+}
+  
+#header a, a:link, a:visited, a:hover, a:active {
+    display: block;
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+#headerHome, #headerResume, #headerSites, #headerDemos {
+    display: inline;
+    float: left;
+}
+
+#header p {
+    margin: 0.2em;
+}
+
+@media only screen and (max-width: 600px) {
+    #header {
+        padding-top: 1em;
+        height: 20vh;
+    }
+    #headerHome, #headerResume, #headerSites, #headerDemos {
+        margin: 0 2vw;
+    }
+    img {
+        width: 20vw;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #header {
+        padding-top: 1em;
+        height: 20vh;
+        min-height: 200px;
+    }
+    #headerHome, #headerResume, #headerSites, #headerDemos {
+        margin: 0 2em;
+    }
+    img {
+        width: 100px;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #header {
+        padding: 1em 0 0 0;
+        height: 300px;
+    }
+    #headerHome, #headerResume, #headerSites, #headerDemos {
+        margin: 0 3em;
+    }
+    img {
+        width: 150px;
+        height: auto;
+    }
+}

@@ -1,6 +1,6 @@
 function Resume() {
     return (
-        <div>
+        <div id="contentWrapper">
             <h1>Resume</h1>
             <p>Here are resume details</p>
         </div>

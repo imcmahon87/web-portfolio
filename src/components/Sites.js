@@ -1,6 +1,6 @@
 function Sites() {
     return (
-        <div>
+        <div id="contentWrapper">
             <h1>Sites</h1>
             <p>Here are websites I made</p>
         </div>

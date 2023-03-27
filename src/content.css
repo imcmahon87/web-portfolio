@@ -1,0 +1,20 @@
+#contentWrapper {
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+    #contentWrapper {
+        width: 100%;
+        padding: 0 1em;
+    }
+}
+@media only screen and (min-width: 600px) {
+    #contentWrapper {
+        width: 80%;
+    }
+}
+@media only screen and (min-width: 992px) {
+    #contentWrapper {
+        width: 60%;
+    }
+}

@@ -1,13 +1,11 @@
+import './Header.css';
 import { Link } from 'react-router-dom';
-import circlePurple from '../images/circlePurple.png';
-import circleRed from '../images/circleRed.png';
-import circleBlue from '../images/circleBlue.png';
-import circleGreen from '../images/circleGreen.png';
+import buttonHome from '../images/button-home.png';
 
 let backgroundOldX = 0;
 let backgroundNewX = 0;
 
-function MobileHeader(props) {
+function Header(props) {
 
     function setContentDirection(oldX, newX) {
         console.log(oldX + ', ' + newX);
@@ -80,61 +78,63 @@ function MobileHeader(props) {
     }
 
     return (
-        <div id="header">
-            <div id="headerHome">
-                {disableHome ?
-                    <Link to="/" onClick={e => e.preventDefault()}>
-                        <img src={circlePurple}/>
-                        <p>Home</p>
-                    </Link>
-                :
-                    <Link to="/" onClick={() => {backgroundTest(0)}}>
-                        <img src={circlePurple}/>
-                        <p>Home</p>
-                    </Link>
-                }
-            </div>
-            <div id="headerResume">
-                {disableResume ?
-                    <Link to="/resume" onClick={e => e.preventDefault()}>
-                        <img src={circleRed}/>
-                        <p>Resume</p>
-                    </Link>
-                :
-                    <Link to="/resume" onClick={() => {backgroundTest(-33)}}>
-                        <img src={circleRed}/>
-                        <p>Resume</p>
-                    </Link>
-                }
-            </div>
-            <div id="headerSites">
-                {disableSites ?
-                    <Link to="/sites" onClick={e => e.preventDefault()}>
-                        <img src={circleBlue}/>
-                        <p>Sites</p>
-                    </Link>
-                :
-                    <Link to="/sites" onClick={() => {backgroundTest(-66)}}>
-                        <img src={circleBlue}/>
-                        <p>Sites</p>
-                    </Link>
-                }
-            </div>
-            <div id="headerDemos">
-                {disableDemos ?
-                    <Link to="/demos" onClick={e => e.preventDefault()}>
-                        <img src={circleGreen}/>
-                        <p>Demos</p>
-                    </Link>
-                :
-                    <Link to="/demos" onClick={() => {backgroundTest(-99)}}>
-                        <img src={circleGreen}/>
-                        <p>Demos</p>
-                    </Link>
-                }
+        <div id="header" class="gradient-png">
+            <div id="headerLinks">
+                <div id="headerHome">
+                    {disableHome ?
+                        <Link to="/" onClick={e => e.preventDefault()}>
+                            <img src={buttonHome}/>
+                            <h4>Home</h4>
+                        </Link>
+                    :
+                        <Link to="/" onClick={() => {backgroundTest(0)}}>
+                            <img src={buttonHome}/>
+                            <h4>Home</h4>
+                        </Link>
+                    }
+                </div>
+                <div id="headerResume">
+                    {disableResume ?
+                        <Link to="/resume" onClick={e => e.preventDefault()}>
+                            <img src={buttonHome}/>
+                            <h4>Resume</h4>
+                        </Link>
+                    :
+                        <Link to="/resume" onClick={() => {backgroundTest(-33)}}>
+                            <img src={buttonHome}/>
+                            <h4>Resume</h4>
+                        </Link>
+                    }
+                </div>
+                <div id="headerSites">
+                    {disableSites ?
+                        <Link to="/sites" onClick={e => e.preventDefault()}>
+                            <img src={buttonHome}/>
+                            <h4>Sites</h4>
+                        </Link>
+                    :
+                        <Link to="/sites" onClick={() => {backgroundTest(-66)}}>
+                            <img src={buttonHome}/>
+                            <h4>Sites</h4>
+                        </Link>
+                    }
+                </div>
+                <div id="headerDemos">
+                    {disableDemos ?
+                        <Link to="/demos" onClick={e => e.preventDefault()}>
+                            <img src={buttonHome}/>
+                            <h4>Demos</h4>
+                        </Link>
+                    :
+                        <Link to="/demos" onClick={() => {backgroundTest(-99)}}>
+                            <img src={buttonHome}/>
+                            <h4>Demos</h4>
+                        </Link>
+                    }
+                </div>
             </div>
         </div>
     );
 }
 
-export default MobileHeader;
+export default Header;

@@ -1,5 +1,6 @@
 import './App.css';
-import MobileHeader from './components/MobileHeader';
+import './content.css';
+import Header from './components/Header';
 import Home from './components/Home';
 import Resume from './components/Resume';
 import Sites from './components/Sites';
@@ -28,7 +29,7 @@ function App(props) {
     
   return (
     <div id="wrapper">
-      <MobileHeader page={props.page}/>
+      <Header page={props.page}/>
         <SwitchTransition>
           <CSSTransition key={location.key} in={isVisible}
                 timeout={300}
