@@ -3,9 +3,10 @@ import MobileHeader from './components/MobileHeader';
 import Home from './components/Home';
 import Resume from './components/Resume';
 import Sites from './components/Sites';
+import Demos from './components/Demos';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function App(props) {
 
@@ -19,6 +20,8 @@ function App(props) {
     content = <Resume />;
   } else if (props.page === "Sites") {
     content = <Sites />;
+  } else if (props.page === "Demos") {
+    content = <Demos />;
   } else {
     content = <Home />;
   }

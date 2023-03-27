@@ -8,20 +8,6 @@ let backgroundOldX = 0;
 let backgroundNewX = 0;
 
 function MobileHeader(props) {
-    // Toggle Demos Menu
-    let demoMenuVisible = false;
-    function demoMenu() {
-        let links = document.getElementById("demosMenu");
-        if (!demoMenuVisible) {
-            links.style.maxHeight = "200px";
-            links.style.transition = "max-height .25s ease-in";
-            demoMenuVisible = !demoMenuVisible
-        } else {
-            links.style.maxHeight = "0";
-            links.style.transition = "max-height .25s ease-out";
-            demoMenuVisible = !demoMenuVisible;
-        }
-    }
 
     function setContentDirection(oldX, newX) {
         console.log(oldX + ', ' + newX);
@@ -41,6 +27,7 @@ function MobileHeader(props) {
     let disableHome;
     let disableResume;
     let disableSites;
+    let disableDemos;
 
     let trackOldX;
 
@@ -49,7 +36,7 @@ function MobileHeader(props) {
         trackOldX = backgroundOldX;
         backgroundOldX = backgroundNewX;
         setContentDirection(trackOldX, backgroundNewX);
-        document.documentElement.style.setProperty('--backgroundInitial', '66vw');
+        document.documentElement.style.setProperty('--backgroundInitial', '0vw');
     } else {
         disableHome = false;
     }
@@ -58,7 +45,7 @@ function MobileHeader(props) {
         trackOldX = backgroundOldX;
         backgroundOldX = backgroundNewX;
         setContentDirection(trackOldX, backgroundNewX);
-        document.documentElement.style.setProperty('--backgroundInitial', '33vw');
+        document.documentElement.style.setProperty('--backgroundInitial', '-33vw');
     } else {
         disableResume = false;
     }
@@ -66,11 +53,19 @@ function MobileHeader(props) {
         disableSites = true;
         trackOldX = backgroundOldX;
         backgroundOldX = backgroundNewX;
-        backgroundNewX = 0;
         setContentDirection(trackOldX, backgroundNewX);
-        document.documentElement.style.setProperty('--backgroundInitial', '0');
+        document.documentElement.style.setProperty('--backgroundInitial', '-66vw');
     } else {
         disableSites = false;
+    }
+    if (props.page === 'Demos') {
+        disableDemos = true;
+        trackOldX = backgroundOldX;
+        backgroundOldX = backgroundNewX;
+        setContentDirection(trackOldX, backgroundNewX);
+        document.documentElement.style.setProperty('--backgroundInitial', '-99vw');
+    } else {
+        disableDemos = false;
     }
 
     function backgroundTest(newX) {
@@ -86,55 +81,59 @@ function MobileHeader(props) {
 
     return (
         <div id="header">
-        <div id="headerHome">
-            {disableHome ?
-                <Link to="/" onClick={e => e.preventDefault()}>
-                    <img src={circlePurple}/>
-                    <p>Home</p>
-                </Link>
-            :
-                <Link to="/" onClick={() => {backgroundTest(66)}}>
-                    <img src={circlePurple}/>
-                    <p>Home</p>
-                </Link>
-            }
+            <div id="headerHome">
+                {disableHome ?
+                    <Link to="/" onClick={e => e.preventDefault()}>
+                        <img src={circlePurple}/>
+                        <p>Home</p>
+                    </Link>
+                :
+                    <Link to="/" onClick={() => {backgroundTest(0)}}>
+                        <img src={circlePurple}/>
+                        <p>Home</p>
+                    </Link>
+                }
+            </div>
+            <div id="headerResume">
+                {disableResume ?
+                    <Link to="/resume" onClick={e => e.preventDefault()}>
+                        <img src={circleRed}/>
+                        <p>Resume</p>
+                    </Link>
+                :
+                    <Link to="/resume" onClick={() => {backgroundTest(-33)}}>
+                        <img src={circleRed}/>
+                        <p>Resume</p>
+                    </Link>
+                }
+            </div>
+            <div id="headerSites">
+                {disableSites ?
+                    <Link to="/sites" onClick={e => e.preventDefault()}>
+                        <img src={circleBlue}/>
+                        <p>Sites</p>
+                    </Link>
+                :
+                    <Link to="/sites" onClick={() => {backgroundTest(-66)}}>
+                        <img src={circleBlue}/>
+                        <p>Sites</p>
+                    </Link>
+                }
+            </div>
+            <div id="headerDemos">
+                {disableDemos ?
+                    <Link to="/demos" onClick={e => e.preventDefault()}>
+                        <img src={circleGreen}/>
+                        <p>Demos</p>
+                    </Link>
+                :
+                    <Link to="/demos" onClick={() => {backgroundTest(-99)}}>
+                        <img src={circleGreen}/>
+                        <p>Demos</p>
+                    </Link>
+                }
+            </div>
         </div>
-        <div id="headerResume">
-            {disableResume ?
-                <Link to="/resume" onClick={e => e.preventDefault()}>
-                    <img src={circleRed}/>
-                    <p>Resume</p>
-                </Link>
-            :
-                <Link to="/resume" onClick={() => {backgroundTest(33)}}>
-                    <img src={circleRed}/>
-                    <p>Resume</p>
-                </Link>
-            }
-        </div>
-        <div id="headerSites">
-            {disableSites ?
-                <Link to="/sites" onClick={e => e.preventDefault()}>
-                    <img src={circleBlue}/>
-                    <p>Sites</p>
-                </Link>
-            :
-                <Link to="/sites" onClick={() => {backgroundTest(0)}}>
-                    <img src={circleBlue}/>
-                    <p>Sites</p>
-                </Link>
-            }
-        </div>
-        <div id="headerDemos" onClick={demoMenu}>
-            <img src={circleGreen} />
-            <p>Demos</p>
-        </div>
-        <div id="demosMenu">
-            <p>Video Game Demo</p>
-            <p>Database Demo</p>
-            <p>Third demo</p>
-        </div>
-    </div>
     );
 }
 

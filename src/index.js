@@ -18,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: '/sites',
     element: <App page="Sites" />
+  },
+  {
+    path: '/demos',
+    element: <App page="Demos" />
   }
 ]);
 
