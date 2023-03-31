@@ -1,4 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Exo:wght@700&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Exo:wght@700&display=swap');
+
+
+font-family: 'Questrial', sans-serif;
+*/
+@font-face {
+  font-family: 'Coolvetica';
+  src: local('Coolvetica'), url(./images/coolvetica.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Questrial';
+  src: local('Questrial'), url(./images/Questrial-Regular.ttf) format('truetype');
+}
 
 * {
   box-sizing: border-box;
@@ -11,27 +23,51 @@ body {
 html, body {
   margin: 0;
   padding: 0;
-  color: #f2f2f2;
-  font-family: 'Alegreya Sans', sans-serif;
+  color: #0c0c0c;
+  font-family: 'Questrial', sans-serif;
 }
 
 h1 {
   width: fit-content;
   margin: 0 auto;
-  font-family: 'Exo', sans-serif;
-  padding: 0 1em 1em 1em;
+  font-family: 'Coolvetica', sans-serif;
+  padding: 0 1em 0 1em;
+}
+
+h2 {
+  width: fit-content;
+  margin: 0 auto;
+  font-family: 'Coolvetica', sans-serif;
+  padding: 1em;
+}
+
+h3 {
+  width: fit-content;
+  margin: 0 auto;
+  font-family: 'Coolvetica', sans-serif;
+  padding: 1em;
 }
 
 h4 {
   width: fit-content;
-  font-family: 'Exo', sans-serif;
+  font-family: 'Coolvetica', sans-serif;
   padding: 0;
   margin: 0 auto;
+}
+
+p {
+  line-height: 2em;
 }
 
 @media only screen and (max-width: 600px) {
   h1 {
     font-size: 2.5em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.3em;
   }
   h4 {
     font-size: 1em;
@@ -45,23 +81,35 @@ h4 {
   h1 {
     font-size: 3em;
   }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
   h4 {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   p {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 }
 
 @media only screen and (min-width: 992px) {
   h1 {
-    font-size: 3.5em;
+    font-size: 4em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 2em;
   }
   h4 {
     font-size: 1.5em;
   }
   p {
-    font-size: 1.5em;
+    font-size: 1.1em;
   }
 }
 
@@ -78,7 +126,7 @@ h4 {
   width: 100%;
   padding: 0;
   min-height: 100vh;
-  background-image: url("./images/background-small.jpg");
+  background-image: url("./images/background-gradient-small2.jpg");
   background-size: 200vw 100vh;
   background-position-x: var(--backgroundInitial);
   background-attachment: fixed;

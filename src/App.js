@@ -2,8 +2,8 @@ import './App.css';
 import './content.css';
 import Header from './components/Header';
 import Home from './components/Home';
-import Resume from './components/Resume';
-import Sites from './components/Sites';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
 import Demos from './components/Demos';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { useLocation } from 'react-router-dom';
@@ -17,10 +17,10 @@ function App(props) {
   let content;
   if (props.page === "Home") {
     content = <Home />;
-  } else if (props.page === "Resume") {
-    content = <Resume />;
-  } else if (props.page === "Sites") {
-    content = <Sites />;
+  } else if (props.page === "Skills") {
+    content = <Skills />;
+  } else if (props.page === "Projects") {
+    content = <Projects />;
   } else if (props.page === "Demos") {
     content = <Demos />;
   } else {

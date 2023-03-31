@@ -1,20 +1,163 @@
 #contentWrapper {
     margin: 0 auto;
+    height: fit-content;
+    text-align: center;
 }
+
+#contentWrapper a, a:link, a:visited, a:hover, a:active {
+    display: inline;
+    color: #0000ee;
+    text-decoration: underline;
+}
+
+#contentLeft {
+    text-align: left;
+}
+
+#contentRight {
+    text-align: left;
+    overflow: visible;
+}
+
+.contentBox {
+    width: 100%;
+    overflow: auto;
+    padding-top: 2em;
+    text-align: left;
+}
+
+.projectBox {
+    margin-top: 3em;
+    overflow: auto;
+}
+
+.projectLeft {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    width: 48%;
+    float: left;
+    padding: 1em;
+}
+
+.projectRight {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    width: 48%;
+    float: right;
+    padding: 1em;
+}
+
+
 
 @media only screen and (max-width: 600px) {
     #contentWrapper {
         width: 100%;
-        padding: 0 1em;
+        padding: 0 1em 1em 1em;
+    }
+    .contentBox {
+        padding-top: 2 em;
+    }
+    #photoReact {
+        width: 90vw;
+    }
+    #contentLeft {
+        display: block;
+        width: 100%;
+    }
+    #contentRight {
+        display: block;
+        width: 100%;
+    }
+    .projectLeft {
+        display: block;
+        width: 100%;
+        margin-bottom: 1.5em;
+    }
+    .projectRight {
+        display: block;
+        width: 100%;
     }
 }
 @media only screen and (min-width: 600px) {
     #contentWrapper {
-        width: 80%;
+        width: 90%;
+        padding: 0 1em 1em 1em;
+    }
+    #contentLeft {
+        display: block;
+        width: 100%;
+    }
+    #contentRight {
+        display: block;
+        width: 100%;
+    }
+    #photoReact {
+        width: 60vw;
     }
 }
+
 @media only screen and (min-width: 992px) {
     #contentWrapper {
+        width: 80%;
+        min-width: 900px;
+        padding: 0 1em 1em 1em;
+    }
+    .contentBox {
+        padding-top: 2em;
+    }
+    #contentLeft {
+        float: left;
+        display: inline;
+        width: 50%;
+    }
+    #contentRight {
+        float: right;
+        width: 50%;
+        padding-left: 2em;
+    }
+    #photoReact {
+        width: 100%;
+        height: auto;
+    }
+    #contentLeft {
+        padding-right: 2em;
+    }
+    .topParagraph {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #contentWrapper {
         width: 60%;
+        min-width: 1000px;
+        padding: 0 1em 1em 1em;
+    }
+    #contentRight {
+        float: right;
+        padding-left: 3em;
+    }
+    #photoReact {
+        width: 100%;
+        height: auto;
+        float: right;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+  
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
     }
 }

@@ -4,13 +4,14 @@
     width: 100%;
     text-align: center;
     position: sticky;
+    z-index: 100;
     top: 0;
 }
 
-.gradient-png {
+.headerGradient {
     mask-image: linear-gradient(white 75%, transparent);
     -webkit-mask-image: linear-gradient(white 75%, transparent);
-    background-image: url("../images/background-small.jpg");
+    background-image: url("../images/background-gradient-small2.jpg");
     background-size: 200vw 100vh;
 }
 
@@ -22,11 +23,11 @@
   
 #header a, a:link, a:visited, a:hover, a:active {
     display: block;
-    color: #f2f2f2;
+    color: #0c0c0c;
     text-decoration: none;
 }
 
-#headerHome, #headerResume, #headerSites, #headerDemos {
+#headerHome, #headerSkills, #headerProjects, #headerDemos {
     display: inline;
     float: left;
 }
@@ -37,43 +38,42 @@
 
 @media only screen and (max-width: 600px) {
     #header {
-        padding-top: 1em;
-        height: 20vh;
+        padding-top: 2em;
+        height: 13vh;
     }
-    #headerHome, #headerResume, #headerSites, #headerDemos {
+    #headerHome, #headerSkills, #headerProjects, #headerDemos {
         margin: 0 2vw;
     }
-    img {
-        width: 20vw;
+    #header img {
+        width: 18vw;
         height: auto;
     }
 }
 
 @media only screen and (min-width: 600px) {
     #header {
-        padding-top: 1em;
-        height: 20vh;
-        min-height: 200px;
+        padding-top: 2.5em;
+        height: 150px;
     }
-    #headerHome, #headerResume, #headerSites, #headerDemos {
-        margin: 0 2em;
+    #headerHome, #headerSkills, #headerProjects, #headerDemos {
+        margin: 0 2vw;
     }
-    img {
-        width: 100px;
+    #header img {
+        width: 12vw;
         height: auto;
     }
 }
 
 @media only screen and (min-width: 992px) {
     #header {
-        padding: 1em 0 0 0;
-        height: 300px;
+        padding: 2.5em 0 0 0;
+        height: 150px;
     }
-    #headerHome, #headerResume, #headerSites, #headerDemos {
-        margin: 0 3em;
+    #headerHome, #headerSkills, #headerProjects, #headerDemos {
+        margin: 0 2vw;
     }
-    img {
-        width: 150px;
+    #header img {
+        width: 120px;
         height: auto;
     }
 }
