@@ -8,6 +8,7 @@ import Demos from './components/Demos';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import ScrollToTop from './components/ScrollToTop';
 
 function App(props) {
 
@@ -29,6 +30,7 @@ function App(props) {
     
   return (
     <div id="wrapper">
+      <ScrollToTop />
       <Header page={props.page}/>
         <SwitchTransition>
           <CSSTransition key={location.key} in={isVisible}

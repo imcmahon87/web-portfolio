@@ -1,27 +1,53 @@
 import './Header.css';
 import { Link } from 'react-router-dom';
-import buttonHome from '../images/button-home.png';
 
+// Used for deciding which direction animation will scroll from
 let backgroundOldX = 0;
 let backgroundNewX = 0;
+let trackOldX = 0;
+
+// Menu underline coordinates
+let line;
+let offset;
+let parentPos;
+let childPos;
+let page;
 
 function Header(props) {
 
+    page = props.page;
+
+    // On load, put the menu underline in the correct spot
+    window.onload = () => {
+        if (page === 'Home') {
+            shiftBackground(1);
+        } else if (page === 'Skills') {
+            shiftBackground(2);
+        } else if (page === 'Projects') {
+            shiftBackground(3);
+        } else if (page === 'Demos') {
+            shiftBackground(4);
+        } else {
+            shiftBackground(1);
+        }
+    }
+
+    // Update underline when resizing window
+    window.addEventListener('resize', () => {
+        shiftBackground(backgroundNewX);
+    });
     // For the particular page, set the background offset and also disable its respective icon (to prevent animating)
     let disableHome;
     let disableSkills;
     let disableProjects;
     let disableDemos;
 
-    let trackOldX;
-
-    // For each section, disable animation for its button and track background coordinates for next animation
+    // For each section, disable animation for its button and track which way the animation scrolls
     if (props.page === 'Home') {
         disableHome = true;
         trackOldX = backgroundOldX;
         backgroundOldX = backgroundNewX;
         setContentDirection(trackOldX, backgroundNewX);
-        document.documentElement.style.setProperty('--backgroundInitial', '0vw');
     } else {
         disableHome = false;
     }
@@ -30,7 +56,6 @@ function Header(props) {
         trackOldX = backgroundOldX;
         backgroundOldX = backgroundNewX;
         setContentDirection(trackOldX, backgroundNewX);
-        document.documentElement.style.setProperty('--backgroundInitial', '-33vw');
     } else {
         disableSkills = false;
     }
@@ -39,7 +64,6 @@ function Header(props) {
         trackOldX = backgroundOldX;
         backgroundOldX = backgroundNewX;
         setContentDirection(trackOldX, backgroundNewX);
-        document.documentElement.style.setProperty('--backgroundInitial', '-66vw');
     } else {
         disableProjects = false;
     }
@@ -48,27 +72,32 @@ function Header(props) {
         trackOldX = backgroundOldX;
         backgroundOldX = backgroundNewX;
         setContentDirection(trackOldX, backgroundNewX);
-        document.documentElement.style.setProperty('--backgroundInitial', '-99vw');
     } else {
         disableDemos = false;
     }
 
-    // Take new background coordinate and shift to it
+    // Update scroll direction and animate the header underlining
     function shiftBackground(newX) {
-        let element = document.getElementById('wrapper');
         backgroundOldX = backgroundNewX;
         backgroundNewX = newX;
-        document.documentElement.style.setProperty('--backgroundStart', backgroundOldX + 'vw');
-        document.documentElement.style.setProperty('--backgroundEnd', backgroundNewX + 'vw');
-        element.classList.remove('wrapper');
-        setTimeout(() => element.classList.add('wrapper'), 1);
-        setTimeout(() => element.style.backgroundPositionX = backgroundNewX + 'vw', 100);
+        parentPos = document.getElementById('headerLinks').getBoundingClientRect();
+        if (newX === 1) {
+            childPos = document.getElementById('headerHome').offsetLeft;
+        } else if (newX === 2) {
+            childPos = document.getElementById('headerSkills').offsetLeft;
+        } else if (newX === 3) {
+            childPos = document.getElementById('headerProjects').offsetLeft;
+        } else {
+            childPos = document.getElementById('headerDemos').offsetLeft;
+        }
+        offset = document.getElementById('headerHome').offsetLeft;
+        line = document.getElementById('underline');
+        line.style.left = (childPos) + 'px';
     }
 
-    // If background coordinate is less than the new coordinate, shift left, otherwise shift right
+    // Set which direction the animation will scroll
     function setContentDirection(oldX, newX) {
-        console.log(oldX + ', ' + newX);
-        if (oldX > newX) {
+        if (oldX < newX) {
             document.documentElement.style.setProperty('--contentStart', '100vw');
             document.documentElement.style.setProperty('--contentMiddle', '0');
             document.documentElement.style.setProperty('--contentEnd', '-100vw');
@@ -89,7 +118,7 @@ function Header(props) {
                             <h4>Home</h4>
                         </Link>
                     :
-                        <Link to="/" onClick={() => {shiftBackground(0)}}>
+                        <Link to="/" onClick={() => {shiftBackground(1)}}>
                             <h4>Home</h4>
                         </Link>
                     }
@@ -100,7 +129,7 @@ function Header(props) {
                             <h4>Skills</h4>
                         </Link>
                     :
-                        <Link to="/skills" onClick={() => {shiftBackground(-33)}}>
+                        <Link to="/skills" onClick={() => {shiftBackground(2)}}>
                             <h4>Skills</h4>
                         </Link>
                     }
@@ -111,7 +140,7 @@ function Header(props) {
                             <h4>Projects</h4>
                         </Link>
                     :
-                        <Link to="/projects" onClick={() => {shiftBackground(-66)}}>
+                        <Link to="/projects" onClick={() => {shiftBackground(3)}}>
                             <h4>Projects</h4>
                         </Link>
                     }
@@ -122,10 +151,12 @@ function Header(props) {
                             <h4>Demos</h4>
                         </Link>
                     :
-                        <Link to="/demos" onClick={() => {shiftBackground(-99)}}>
+                        <Link to="/demos" onClick={() => {shiftBackground(4)}}>
                             <h4>Demos</h4>
                         </Link>
                     }
+                </div>
+                <div id="underline">
                 </div>
             </div>
         </div>

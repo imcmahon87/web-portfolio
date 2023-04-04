@@ -47,13 +47,56 @@
     padding: 1em;
 }
 
+#homeWrapper {
+    margin: 0 auto;
+    height: fit-content;
+    text-align: center;
+    position: relative;
+    top: -130px;
+}
 
+#homeWrapper a, a:link, a:visited, a:hover, a:active {
+    display: inline;
+    color: #0000ee;
+    text-decoration: underline;
+}
+
+#landingBanner {
+    width: 100vw;
+    height: 60vh;
+    position: relative;
+    top: -150px;
+    background-image: url("./images/photo-react-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#landingText {
+    background: #e7e7e7;
+    color: black;
+    display: inline-block;
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 60%;
+    left: 50%;
+    padding: 0.4em 0 0.6em 0;
+}
 
 @media only screen and (max-width: 600px) {
     #contentWrapper {
         width: 100%;
         padding: 0 1em 1em 1em;
     }
+
+    #homeWrapper {
+        padding: 0 1em 1em 1em;
+    }
+
+    #landingBanner {
+        background-size: 200%;
+    }
+
     .contentBox {
         padding-top: 2 em;
     }
@@ -128,6 +171,12 @@
 }
 
 @media only screen and (min-width: 1200px) {
+    #homeWrapper {
+        width: 60%;
+        min-width: 1000px;
+        padding: 0 1em 1em 1em;
+    }
+
     #contentWrapper {
         width: 60%;
         min-width: 1000px;

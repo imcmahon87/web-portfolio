@@ -59,6 +59,13 @@ p {
   line-height: 2em;
 }
 
+.blueUnderline {
+  text-decoration: underline;
+  -webkit-text-decoration-color: blue; /* Safari */  
+  text-decoration-color: blue;
+  text-decoration-thickness: 15%; 
+}
+
 @media only screen and (max-width: 600px) {
   h1 {
     font-size: 2.5em;
