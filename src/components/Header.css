@@ -1,18 +1,12 @@
 #header {
-    margin: 0 auto;
+    margin: 0 auto 3em auto;
     overflow: auto;
     width: 100%;
     text-align: center;
     position: sticky;
     z-index: 100;
     top: 0;
-}
-
-.headerGradient {
-    mask-image: linear-gradient(white 75%, transparent);
-    -webkit-mask-image: linear-gradient(white 75%, transparent);
-    background-image: url("../images/background-gradient-small2.jpg");
-    background-size: 200vw 100vh;
+    background-color: #ffffff;
 }
 
 #headerLinks {
@@ -45,16 +39,23 @@
     width: 70px;
     transition-property: left;
     transition-duration: 0.5s;
-    background-color: black;
+    background-color: #000000;
+}
+
+#footer {
+    width: 100vw;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 1em 0;
 }
 
 @media only screen and (max-width: 600px) {
     #header {
         padding-top: 2em;
-        height: 13vh;
+        height: 10vh;
     }
     #headerHome, #headerSkills, #headerProjects, #headerDemos {
-        margin: 0 2vw;
+        margin: 0 4vw;
     }
     #header img {
         width: 18vw;
@@ -62,7 +63,7 @@
     }
     #underline {
         margin-top: 1.5em;
-        width: 40px;
+        width: 50px;
         height: 5px;
     }
 }
@@ -70,17 +71,17 @@
 @media only screen and (min-width: 600px) {
     #header {
         padding-top: 2.5em;
-        height: 150px;
+        height: 110px;
     }
     #headerHome, #headerSkills, #headerProjects, #headerDemos {
-        margin: 0 2vw;
+        margin: 0 4vw;
     }
     #header img {
         width: 12vw;
         height: auto;
     }
     #underline {
-        margin-top: 1.25em;
+        margin-top: 1.4em;
         width: 50px;
         height: 5px;
     }
@@ -89,7 +90,8 @@
 @media only screen and (min-width: 992px) {
     #header {
         padding: 2.5em 0 0 0;
-        height: 150px;
+        height: 120px;
+        position: relative;
     }
     #headerHome, #headerSkills, #headerProjects, #headerDemos {
         margin: 0 2vw;

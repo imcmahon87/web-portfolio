@@ -1,0 +1,46 @@
+.skillBox {
+    width: 100%;
+    overflow: auto;
+    text-align: left;
+    display: flex;
+}
+
+.skillBox h3 {
+    padding: 0;
+}
+
+.skillLeft {
+    float: left;
+    width: 48%;
+    padding: 2em;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin: 0.75em;
+}
+
+.skillRight {
+    float: right;
+    width: 48%;
+    padding: 2em;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin: 0.75em;
+}
+
+@media only screen and (max-width: 600px) {
+    .skillBox {
+        display: block;
+    }
+    .skillLeft {
+        width: 100%;
+        display: block;
+        margin: 0.75em auto;
+    }
+    
+    .skillRight {
+        width: 100%;
+        display: block;
+        margin: 0.75em auto;
+    }
+
+}

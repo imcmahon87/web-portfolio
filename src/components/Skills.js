@@ -1,45 +1,122 @@
+import './Skills.css';
 import resume from '../images/resume.pdf';
+import Footer from './Footer';
 
 function Skills() {
     return (
-        <div id="contentWrapper">
-            <h1>Skills</h1>
-            <p>For a concise skills summary, please view my <a href={resume} target="_blank">resume</a>.</p>
-            <div class="contentBox">
-                <div id="contentLeft">
-                    <h3>HTML/CSS</h3>
-                    <p>Responsive web design implemented to look great on any screen size</p>
-                    <h3>JavaScript</h3>
-                    <p>ES6 syntax, synchronous and asynchronous patterns, DOM manipulation, jQuery</p>
-                    <h3>React</h3>
-                    <p>Functional and class based components, hooks, routing</p>
-                    <h3>Node</h3>
-                    <p>Core packages, NPM, servers using http and Express.js modules</p>
-                    <h3>Git</h3>
-                    <p>Git Bash terminal, multiple branches</p>
-                    <h3>PHP</h3>
-                    <p>Form handling, sessions</p>
-                </div>
-                <div id="contentRight">
-                    <h3>Database Design</h3>
-                    <p>Access, SQL Server, phpMyAdmin, normalization</p>
-                    <h3>SQL</h3>
-                    <p>Queries, subqueries, aggregation, joins, users, permissions</p>
-                    <h3>Cybersecurity</h3>
-                    <p>Best practices, secure coding, Linux/Windows settings, logging, firewalls</p>
-                    <h3>Data Analytics</h3>
-                    <p>Visualization, JupyterLab, Tableau, predictive analysis using Python</p>
-                    <h3>Windows and Linux</h3>
-                    <p>Administrative tasks via command prompt, settings, virtualization, SSH</p>
-                    <h3>Graphic Design</h3>
-                    <p>User interfaces, web graphics, logos, print designs, Adobe suite</p>
+        <div>
+            <div id="parallaxBanner">
+                <div id="bannerText">
+                    <h1>Skills Summary</h1>
                 </div>
             </div>
-            <h2>Education</h2>
-            <p>AAS degree in Computer Information Systems</p>
-            <p>Secure Coding Certificate</p>
-            <p>Cybersecurity Fundamentals Certificate</p>
-            <p>Graduating Spring, 2023</p>
+        <div id="contentWrapper">
+            <p>For a concise skills summary, please view my <a href={resume} target="_blank">resume</a>.</p>
+            <div class="skillBox">
+                <div class="skillLeft">
+                    <h3 class="underlinePurple">HTML/CSS</h3>
+                    <p>
+                        Responsive web design implemented to look great on any screen size.
+                        Proficient with HTML inputs, form handling, multimedia, CSS box-models, 
+                        pseudo-elements, and flex-boxes.
+                    </p>
+                </div>
+                <div class="skillRight">
+                    <h3 class="underlineGreen">JavaScript</h3>
+                    <p>
+                        My preferred language for both front and back-end (using Node.js). Savvy with
+                        ES6 syntax, DOM manipulation, jQuery, promises, async/await, and built in functions.
+                    </p>
+                </div>
+            </div>
+            <div class="skillBox">
+                <div class="skillLeft">
+                    <h3 class="underlineOrange">React</h3>
+                    <p>
+                        This site was created using React. I have familiarity with function and class-based 
+                        components, JSX, hooks, routing, and using component state and properties.
+                    </p>
+                </div>
+                <div class="skillRight">
+                    <h3 class="underlineBlue">Node</h3>
+                    <p>
+                        Server side coding skills for back-end functionality. I've used the
+                        core packages such as http, url, path, fs, as well as many NPM packages. 
+                        Experience spinning up Express servers.
+                    </p>
+                </div>
+            </div>
+            <div class="skillBox">
+                <div class="skillLeft">
+                    <h3 class="underlineCyan">Database Design</h3>
+                    <p>
+                        I can persist your data in an efficient and sensible manner. Experience with
+                        Microsoft Access, SQL Server, phpMyAdmin, and MySQL. Understanding of 
+                        normalization, cardinality, and business logic in the database.
+                    </p>
+                </div>
+                <div class="skillRight">
+                    <h3 class="underlineRed">SQL</h3>
+                    <p>
+                        Knowledge of SQL as a data definition, manipulation, and query language. Ability to 
+                        use joins, subqueries and aggregation to interact with databases, as well 
+                        as managing users and permissions.
+                    </p>
+                </div>
+            </div>
+            <div class="skillBox">
+                <div class="skillLeft">
+                    <h3 class="underlinePurple">Git</h3>
+                    <p>
+                        I've done collaborative work with other Git users. Experience with Git Bash,
+                        GitHub, branches, pushing/pulling and merging projects with other team members.
+                    </p>
+                </div>
+                <div class="skillRight">
+                    <h3 class="underlineGreen">PHP</h3>
+                    <p>
+                        Another great approach to server side scripting. Understanding of form handling, 
+                        sessions, object-oriented-programming, and database connections.
+                    </p>
+                </div>
+            </div>
+            <div class="skillBox">
+                <div class="skillLeft">
+                    <h3 class="underlineOrange">Cybersecurity</h3>
+                    <p>
+                        Never to be overlooked, cybersecurity best practices must always be 
+                        incorporated. I've studied network security, firewall configuration,
+                        security logging, and secure coding practices.
+                    </p>
+                </div>
+                <div class="skillRight">
+                    <h3 class="underlineBlue">Data Analytics</h3>
+                    <p>
+                        I am enthusiastic to learn more about this exciting field. I've created 
+                        visualizations using JupyterLab and Tableau, as well as touched upon
+                        predictive data analaysis with Python.
+                    </p>
+                </div>
+            </div>
+            <div class="skillBox">
+                <div class="skillLeft">
+                    <h3 class="underlineCyan">Operating Systems</h3>
+                    <p>
+                        I'm most comfortable in Windows and Linux, but always open to new 
+                        environments. Understanding of administrative tasks via command 
+                        prompt, SSH, virtualization, settings, and user permissions.
+                    </p>
+                </div>
+                <div class="skillRight">
+                    <h3 class="underlineRed">Graphic Design</h3>
+                    <p>
+                        Visual presentation is one of my favorite aspects of web development. 
+                        Strong background in user interfaces, logos, print designs, Photoshop and
+                        Illustrator.</p>
+                </div>
+            </div>
+        </div>
+        <Footer />
         </div>
     );
 }

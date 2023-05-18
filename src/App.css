@@ -55,15 +55,78 @@ h4 {
   margin: 0 auto;
 }
 
+h5 {
+  width: fit-content;
+  font-family: 'Coolvetica', sans-serif;
+  padding: 0;
+  margin: 0 auto;
+}
+
 p {
   line-height: 2em;
 }
 
-.blueUnderline {
+.underlineBlue {
   text-decoration: underline;
   -webkit-text-decoration-color: blue; /* Safari */  
   text-decoration-color: blue;
   text-decoration-thickness: 15%; 
+}
+
+.underlineRed {
+  text-decoration: underline;
+  -webkit-text-decoration-color: red; /* Safari */  
+  text-decoration-color: red;
+  text-decoration-thickness: 15%; 
+}
+
+.underlinePurple {
+  text-decoration: underline;
+  -webkit-text-decoration-color: purple; /* Safari */  
+  text-decoration-color: purple;
+  text-decoration-thickness: 15%; 
+}
+
+.underlineOrange {
+  text-decoration: underline;
+  -webkit-text-decoration-color: orange; /* Safari */  
+  text-decoration-color: orange;
+  text-decoration-thickness: 15%; 
+}
+
+.underlineGreen {
+  text-decoration: underline;
+  -webkit-text-decoration-color: green; /* Safari */  
+  text-decoration-color: green;
+  text-decoration-thickness: 15%; 
+}
+
+.underlineCyan {
+  text-decoration: underline;
+  -webkit-text-decoration-color: cyan; /* Safari */  
+  text-decoration-color: cyan;
+  text-decoration-thickness: 15%; 
+}
+
+#parallaxBanner {
+  background-image: url("./images/photo-react-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100vw;
+  position: relative;
+  top: -90px;
+}
+
+#bannerText {
+  background: #e7e7e7;
+  color: black;
+  display: inline-block;
+  position: relative;
+  transform: translate(-50%, -50%);
+  top: 60%;
+  left: 50%;
+  padding: 0.4em 0 0.6em 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -77,11 +140,18 @@ p {
     font-size: 1.3em;
   }
   h4 {
-    font-size: 1em;
+    font-size: 1.2em;
+  }
+  h5 {
+    font-size: 1.3em;
   }
   p {
     font-size: 1.2em;
   }
+  #parallaxBanner {
+    background-size: 200%;
+    height: 25vh;
+}
 }
 
 @media only screen and (min-width: 600px) {
@@ -95,11 +165,17 @@ p {
     font-size: 1.5em;
   }
   h4 {
-    font-size: 1em;
+    font-size: 1.2em;
+  }
+  h5 {
+    font-size: 1.3em;
   }
   p {
     font-size: 1.2em;
   }
+  #parallaxBanner {
+    height: 25vh;
+}
 }
 
 @media only screen and (min-width: 992px) {
@@ -115,9 +191,15 @@ p {
   h4 {
     font-size: 1.5em;
   }
+  h5 {
+    font-size: 1.5em;
+  }
   p {
     font-size: 1.1em;
   }
+  #parallaxBanner {
+    height: 30vh;
+}
 }
 
 :root {
@@ -133,21 +215,7 @@ p {
   width: 100%;
   padding: 0;
   min-height: 100vh;
-  background-image: url("./images/background-gradient-small2.jpg");
-  background-size: 200vw 100vh;
-  background-position-x: var(--backgroundInitial);
-  background-attachment: fixed;
-}
-
-.wrapper {
-  background-position-x: var(--backgroundStart);
-  animation-name: background;
-  animation-duration: 500ms;
-}
-
-@keyframes background {
-  from {background-position-x: var(--backgroundStart);}
-  to {background-position-x: var(--backgroundEnd);}
+  background-color: #e6e6e6;
 }
 
 .content-enter {

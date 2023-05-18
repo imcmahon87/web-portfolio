@@ -1,6 +1,6 @@
 import './App.css';
-import './content.css';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './components/Home';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -9,6 +9,8 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import ScrollToTop from './components/ScrollToTop';
+
+console.log('5-8-2023 changed unmountOnExit to false');
 
 function App(props) {
 
@@ -36,7 +38,7 @@ function App(props) {
           <CSSTransition key={location.key} in={isVisible}
                 timeout={300}
                 classNames="content"
-                unmountOnExit
+                unmountOnExit={false}
                 >
             {content}
           </CSSTransition>

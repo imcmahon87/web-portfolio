@@ -1,0 +1,161 @@
+#projectWrapper {
+    padding-bottom: 5em;
+}
+
+.projectBox {
+    overflow: auto;
+}
+
+.projectLeft {
+    background-color: #ffffff;
+    padding: 1em;
+    border-radius: 20px;
+    float: left;
+    cursor: pointer;
+}
+
+.projectRight {
+    background-color: #ffffff;
+    border-radius: 20px;
+    float: right;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.projectContent {
+    overflow: auto;
+    margin-top: 1em;
+    text-align: left;
+}
+
+.projectContentImage {
+    margin-top: 2em;
+}
+
+.projectContentLeft {
+    float: left;
+    display: inline;
+    width: 50%;
+}
+
+.projectContentRight {
+    float: right;
+    display: inline;
+    text-align: center;
+}
+
+#backButton {
+    cursor: pointer;
+    background-color: #ffffff;
+    padding: 0.1em 0.5em;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .projectBox {
+        margin-bottom: 1.5em;
+    }
+    .projectBox p {
+        line-height: 1.5em;
+    }
+    .projectLeft {
+        display: block;
+        width: 100%;
+        margin-bottom: 1.5em;
+        margin-top: 2em;
+    }
+    .projectLeft img {
+        width: 23%;
+        height: auto;
+    }
+    .projectRight {
+        display: block;
+        width: 100%;
+    }
+    .projectRight img {
+        width: 30%;
+        height: auto;
+    }
+    .projectContentRight {
+        width: 100%;
+        margin: 1em 0 2em 0;
+    }
+    .mobileScreenPic {
+        width: 100%;
+        height: auto;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .projectBox {
+        margin: 3em auto 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+    .projectBox {
+        width: 100%;
+    }
+    .projectBox p {
+        line-height: 1.75em;
+    }
+    .projectLeft {
+        display: block;
+        width: 49%;
+    }
+    .projectLeft img {
+        width: 23%;
+        height: auto;
+    }
+    .projectRight {
+        display: block;
+        width: 49%;
+    }
+    .projectRight img {
+        width: 30%;
+        height: auto;
+    }
+    .projectContentRight {
+        width: 50%;
+    }
+    .mobileScreenPic {
+        width: 60%;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .projectBox {
+        margin: 3em auto 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+    .projectBox p {
+        line-height: 2em;
+    }
+    .projectLeft {
+        width: 49%;
+    }
+    .projectRight {
+        width: 49%;
+    }
+    .projectLeft img {
+        width: 23%;
+        height: auto;
+    }
+    .projectRight img {
+        width: 30%;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .projectLeft {
+        width: 47%;
+    }
+    .projectRight {
+        width: 47%;
+    }
+}

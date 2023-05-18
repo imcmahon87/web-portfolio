@@ -1,5 +1,5 @@
 #contentWrapper {
-    margin: 0 auto;
+    margin: -90px auto 0 auto;
     height: fit-content;
     text-align: center;
 }
@@ -31,14 +31,13 @@
     overflow: auto;
     padding-top: 2em;
     text-align: left;
+    margin-bottom: 0;
 }
 
 #homeWrapper {
-    margin: 0 auto;
+    margin: -130px auto 0 auto;
     height: fit-content;
     text-align: center;
-    position: relative;
-    top: -130px;
 }
 
 #homeWrapper a, a:link, a:visited, a:hover, a:active {
@@ -48,14 +47,14 @@
 }
 
 #landingBanner {
-    width: 100vw;
-    height: 60vh;
-    position: relative;
-    top: -150px;
-    background-image: url("./images/photo-react-background.jpg");
+    background-image: url("../images/photo-react-background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: 0 0;
+    width: 100vw;
+    position: relative;
+    top: -150px;
+    display: inline-block;
 }
 
 #landingText {
@@ -69,6 +68,7 @@
     padding: 0.4em 0 0.6em 0;
 }
 
+
 @media only screen and (max-width: 600px) {
     #contentWrapper {
         width: 100%;
@@ -81,6 +81,7 @@
 
     #landingBanner {
         background-size: 200%;
+        height: 45vh;
     }
 
     .contentBox {
@@ -107,10 +108,13 @@
     
     .focusesLeft {
         display: block;
-        margin: 0 auto;
+        margin: 1em auto;
         width: 100%;
         text-align: left;
         overflow: auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 1em 1em 0 1em;
     }
     
     .focusesLeft img {
@@ -123,10 +127,13 @@
     
     .focusesRight {
         display: block;
-        margin: 0 auto;
+        margin: 1em auto;
         width: 100%;
         text-align: left;
         overflow: auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 1em 1em 0 1em;
     }
     
     .focusesRight img {
@@ -152,6 +159,10 @@
         padding: 1em;
     }
 
+    #landingBanner {
+        height: 35vh;
+    }
+
     #contentRight {
         display: block;
         width: 100%;
@@ -165,12 +176,20 @@
         padding-top: 0;
     }
 
+    .focusBox {
+        display: block;
+    }
+
     .focusesLeft {
         display: block;
         margin: 0 auto;
         width: 80%;
         text-align: left;
         overflow: auto;
+        background-color: #ffffff;
+        border-radius: 20px;
+        padding: 1em;
+        margin-top: 2em;
     }
     
     .focusesLeft img {
@@ -187,6 +206,10 @@
         width: 80%;
         text-align: left;
         overflow: auto;
+        background-color: #ffffff;
+        border-radius: 20px;
+        padding: 1em;
+        margin-top: 2em;
     }
     
     .focusesRight img {
@@ -203,6 +226,10 @@
         width: 80%;
         min-width: 900px;
         padding: 0 1em 1em 1em;
+    }
+
+    #landingBanner {
+        height: 60vh;
     }
 
     .contentBox {
@@ -234,12 +261,22 @@
         margin-top: 0;
     }
 
+    .focusBox {
+        width: 100%;
+        overflow: auto;
+        padding-top: 2em;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+    }
+
     .focusesLeft {
-        width: 50%;
+        width: 48%;
         text-align: left;
         overflow: auto;
-        float: left;
         display: flex;
+        padding: 1em;
+        margin: 1em 0;
     }
     
     .focusesLeft img {
@@ -252,11 +289,12 @@
     }
     
     .focusesRight {
-        width: 50%;
+        width: 48%;
         text-align: left;
         overflow: auto;
-        float: right;
         display: flex;
+        padding: 1em;
+        margin: 1em 0;
     }
     
     .focusesRight img {
@@ -291,6 +329,7 @@
         float: right;
     }
 }
+
 
 @keyframes fadeIn {
     0% {
