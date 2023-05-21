@@ -1,0 +1,389 @@
+/* ----------------------- 
+Create Tables for Database
+--------------------------*/
+
+CREATE TABLE Movies (
+	MovieID int NOT NULL AUTO_INCREMENT,
+	Title varchar(255),
+	ReleaseYear int,
+	Description text,
+	Runtime int,
+	PRIMARY KEY (MovieID)
+);
+
+CREATE TABLE People (
+	PersonID int NOT NULL AUTO_INCREMENT,
+	LastName varchar(255),
+	FirstName varchar(255),
+	BirthDate date,
+	PRIMARY KEY (PersonID)
+);
+
+CREATE TABLE Movies_Directors (
+	MovieID int NOT NULL,
+	PersonID int NOT NULL,
+	PRIMARY KEY (MovieID, PersonID),
+	FOREIGN KEY (MovieID) REFERENCES Movies(MovieID),
+	FOREIGN KEY (PersonID) REFERENCES People(PersonID)
+);
+
+CREATE TABLE Movies_Writers (
+	MovieID int NOT NULL,
+	PersonID int NOT NULL,
+	PRIMARY KEY (MovieID, PersonID),
+	FOREIGN KEY (MovieID) REFERENCES Movies(MovieID),
+	FOREIGN KEY (PersonID) REFERENCES People(PersonID)
+);
+	
+CREATE TABLE Genres (
+	GenreID int NOT NULL AUTO_INCREMENT,
+	Genre varchar(255),
+	PRIMARY KEY (GenreID)
+);
+
+CREATE TABLE Movies_Genres (
+	MovieID int NOT NULL,
+	GenreID int NOT NULL,
+	PRIMARY KEY (MovieID, GenreID),
+	FOREIGN KEY (MovieID) REFERENCES Movies(MovieID),
+	FOREIGN KEY (GenreID) REFERENCES Genres(GenreID)
+);
+
+CREATE TABLE Awards (
+	MovieAwardID int NOT NULL AUTO_INCREMENT,
+	MovieAward varchar(255),
+	PRIMARY KEY (MovieAwardID)
+);
+
+CREATE TABLE Movies_Awards (
+	MovieID int NOT NULL,
+	MovieAwardID int NOT NULL,
+	Category varchar(255),
+	Year int,
+	PRIMARY KEY (MovieID, MovieAwardID, Category, Year),
+	FOREIGN KEY (MovieID) REFERENCES Movies(MovieID),
+	FOREIGN KEY (MovieAwardID) REFERENCES Awards(MovieAwardID)
+);
+
+/* ----------------------- 
+Insert Data for Database
+--------------------------*/
+
+INSERT INTO People (LastName, FirstName, BirthDate)
+VALUES
+	('Spielberg', 'Steven', '1946-12-18'),
+	('Jackson', 'Peter', '1961-10-31'),
+	('Crichton', 'Michael', '1942-10-23'),
+	('Koepp', 'David', '1963-06-09'),
+	('Tolkien', 'J.R.R.', '1892-01-03'),
+	('Walsh', 'Fran', '1959-01-10'),
+	('Boyens', 'Philippa', '1962-01-01'),
+	('Mathison', 'Melissa', '1950-06-03'),
+	('Benchley', 'Peter', '1940-05-08'),
+	('Cameron', 'James', '1954-08-16'),
+	('Lucas', 'George', '1944-05-14'),
+	('Kershner', 'Irvin', '1923-04-29'),
+	('Marquand', 'Richard', '1937-09-22'),
+	('Hooper', 'Tobe', '1943-01-25'),
+	('Scott', 'Ridley', '1937-11-30'),
+	('O\'Bannon', 'Dan', '1946-09-30');
+
+INSERT INTO Movies (Title, ReleaseYear, Description, Runtime)
+VALUES
+	('Jurassic Park', 1993, 'A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park\'s cloned dinosaurs to run loose.', 127),
+	('The Lord of the Rings: The Fellowship of the Ring', 2001, 'A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.', 178),
+	('The Lost World: Jurassic Park', 1997, 'A research team is sent to the Jurassic Park Site B island to study the dinosaurs there, while an InGen team approaches with another agenda.', 129),
+	('The Lord of the Rings: The Two Towers', 2002, 'While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron\'s new ally, Saruman, and his hordes of Isengard.', 179),
+	('The Lord of the Rings: The Return of the King', 2003, 'Gandalf and Aragorn lead the World of Men against Sauron\'s army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.', 201),
+	('E.T. the Extra-Terrestrial', 1982, 'A troubled child summons the courage to help a friendly alien escape from Earth and return to his home planet.', 115),
+	('Jaws', 1975, 'When a killer shark unleashes chaos on a beach community off Cape Cod, it\'s up to a local sheriff, a marine biologist, and an old seafarer to hunt the beast down.', 124),
+	('Titanic', 1997, 'A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.', 124),
+	('Indiana Jones and the Raiders of the Lost Ark', 1981, 'In 1936, archaeologist and adventurer Indiana Jones is hired by the U.S. government to find the Ark of the Covenant before the Nazis can obtain its awesome powers.', 115),
+	('Star Wars: Episode IV - A New Hope', 1977, 'Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire\'s world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.', 121),
+	('Star Wars: Episode V - The Empire Strikes Back', 1980, 'After the Rebels are overpowered by the Empire, Luke Skywalker begins his Jedi training with Yoda, while his friends are pursued across the galaxy by Darth Vader and bounty hunter Boba Fett.', 124),
+	('Star Wars: Episode VI - Return of the Jedi', 1983, 'After rescuing Han Solo from Jabba the Hutt, the Rebels attempt to destroy the second Death Star, while Luke struggles to help Darth Vader back from the dark side.', 131),
+	('The Terminator', 1984, 'A human soldier is sent from 2029 to 1984 to stop an almost indestructible cyborg killing machine, sent from the same year, which has been programmed to execute a young woman whose unborn son is the key to humanity\'s future salvation.', 107),
+	('Terminator 2: Judgment Day', 1991, 'A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her 10-year old son John from an even more advanced and powerful cyborg.', 137),
+	('Avatar', 2009, 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.', 162),
+	('Indiana Jones and the Temple of Doom', 1984, 'In 1935, Indiana Jones is tasked by Indian villagers with reclaiming a rock stolen from them by a secret cult beneath the catacombs of an ancient palace.', 118),
+	('Indiana Jones and the Last Crusade', 1989, 'In 1938, after his father goes missing while pursuing the Holy Grail, Indiana Jones finds himself up against the Nazis again to stop them from obtaining its powers.', 127),
+	('Close Encounters of the Third Kind', 1977, 'Roy Neary, an Indiana electric lineman, finds his quiet and ordinary daily life turned upside down after a close encounter with a UFO, spurring him to an obsessed cross-country quest for answers as a momentous event approaches.', 138),
+	('Poltergeist', 1982, 'A family\'s home is haunted by a host of demonic ghosts.', 114),
+	('Alien', 1979, 'The crew of a commercial spacecraft encounter a deadly lifeform after investigating an unknown transmission.', 117),
+	('Aliens', 1986, 'Decades after surviving the Nostromo incident, Ellen Ripley is sent out to re-establish contact with a terraforming colony but finds herself battling the Alien Queen and her offspring.', 137),
+	('The Abyss', 1989, 'A civilian diving team is enlisted to search for a lost nuclear submarine and faces danger while encountering an alien aquatic species.', 140),
+	('Avatar: The Way of Water', 2022, 'Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na\'vi race to protect their home.', 192),
+	('True Lies', 1994, 'A fearless, globe-trotting, terrorist-battling secret agent has his life turned upside down when he discovers his wife might be having an affair with a used-car salesman while terrorists smuggle nuclear war heads into the United States.', 141),
+	('American Graffiti', 1973, 'A group of teenagers in California\'s central valley spend one final night after their 1962 high school graduation cruising the strip with their buddies before they pursue their varying goals.', 110);
+
+INSERT INTO Awards (MovieAward)
+VALUES
+	('Oscar'),
+	('BAFTA Film'),
+	('Sierra'),
+	('People\'s Choice'),
+	('Critic\'s Choice'),
+	('Saturn');
+
+INSERT INTO Genres (Genre)
+VALUES
+	('Action'),
+	('Crime'),
+	('Drama'),
+	('Comedy'),
+	('Adventure'),
+	('Sci-Fi'),
+	('Family'),
+	('Mystery'),
+	('Thriller'),
+	('Romance'),
+	('Fantasy'),
+	('Horror');
+
+INSERT INTO Movies_Directors (MovieID, PersonID)
+VALUES
+	(1, 1),
+	(2, 2),
+	(3, 1),
+	(4, 2),
+	(5, 2),
+	(6, 1),
+	(7, 1),
+	(8, 10),
+	(9, 1),
+	(10, 11),
+	(11, 12),
+	(12, 13),
+	(13, 10),
+	(14, 10),
+	(15, 10),
+	(16, 1),
+	(17, 1),
+	(18, 1),
+	(19, 14),
+	(20, 15),
+	(21, 10),
+	(22, 10),
+	(23, 10),
+	(24, 10),
+	(25, 1);
+
+INSERT INTO Movies_Writers (MovieID, PersonID)
+VALUES
+	(1, 3),
+	(3, 3),
+	(2, 5),
+	(2, 6),
+	(2, 7),
+	(4, 5),
+	(4, 6),
+	(4, 7),
+	(5, 5),
+	(5, 6),
+	(5, 7),
+	(6, 8),
+	(7, 9),
+	(8, 10),
+	(9, 11),
+	(10, 11),
+	(11, 11),
+	(12, 11),
+	(13, 10),
+	(14, 10),
+	(15, 10),
+	(16, 11),
+	(17, 11),
+	(18, 1),
+	(19, 1),
+	(20, 16),
+	(21, 10),
+	(22, 10),
+	(23, 10),
+	(24, 10),
+	(25, 1);
+
+INSERT INTO Movies_Awards (MovieID, MovieAwardID, Category, Year)
+VALUES
+	(1, 1, 'Best Sound', 1994),
+	(1, 1, 'Best Effects, Sound Effects Editing', 1994),
+	(1, 1, 'Best Effects, Visual Effects', 1994),
+	(1, 2, 'Best Sound', 1994),
+	(1, 2, 'Best Special Effects', 1994),
+	(3, 3, 'Best DVD', 2011),
+	(2, 4, 'Favorite Motion Picture', 2003),
+	(2, 5, 'Favorite Film Franchise', 2012),
+	(4, 5, 'Favorite Film Franchise', 2012),
+	(5, 5, 'Favorite Film Franchise', 2012),
+	(2, 6, 'Best Fantasy Film', 2002),
+	(4, 4, 'Favorite Dramatic Motion Picture', 2004),
+	(5, 1, 'Best Picture', 2004),
+	(5, 2, 'Best Film', 2004),
+	(5, 5, 'Best Picture', 2004),
+	(6, 1, 'Best Sound', 1983),
+	(7, 1, 'Best Sound', 1976),
+	(7, 1, 'Best Film Editing', 1976),
+	(8, 1, 'Best Picture', 1998),
+	(9, 1, 'Best Sound', 1982),
+	(9, 1, 'Best Art Direction', 1982),
+	(10, 1, 'Best Art Direction', 1978),
+	(10, 2, 'Best Sound', 1979),
+	(11, 1, 'Best Sound', 1981),
+	(12, 2, 'Best Special Visual Effects', 1984),
+	(13, 6, 'Best Science Fiction Film', 1985),
+	(13, 6, 'Best Writing', 1985),
+	(14, 1, 'Best Sound', 1992),
+	(14, 1, 'Best Effects', 1992),
+	(15, 1, 'Best Achievement in Cinematography', 2010),
+	(15, 6, 'Best DVD Special Edition', 2011),
+	(16, 1, 'Best Effects', 1985),
+	(16, 2, 'Best Special Visual Effects', 1985),
+	(17, 1, 'Best Effects', 1990),
+	(17, 2, 'Best Special Visual Effects', 1985),
+	(18, 1, 'Best Cinematography', 1978),
+	(19, 2, 'Best Special Visual Effects', 1983),
+	(20, 1, 'Best Effects', 1980),
+	(20, 2, 'Best Production Design', 1980),
+	(20, 2, 'Best Sound Track', 1980),
+	(20, 6, 'Best Science Fiction Film', 1980),
+	(21, 1, 'Best Effects', 1987),
+	(21, 2, 'Best Special Visual Effects', 1987),
+	(22, 1, 'Best Effects', 1990),
+	(23, 1, 'Best Achievement in Visual Effects', 2023),
+	(23, 2, 'Best Achievement in Special Visual Effects', 2023);
+
+INSERT INTO Movies_Genres (MovieID, GenreID)
+VALUES
+	(1, 1),
+	(1, 5),
+	(1, 6),
+	(2, 1),
+	(2, 5),
+	(2, 3),
+	(4, 1),
+	(4, 5),
+	(4, 3),
+	(5, 1),
+	(5, 5),
+	(5, 3),
+	(6, 5),
+	(6, 7),
+	(6, 6),
+	(7, 5),
+	(7, 8),
+	(7, 9),
+	(8, 3),
+	(8, 10),
+	(9, 1),
+	(9, 5),
+	(10, 1),
+	(10, 5),
+	(10, 11),
+	(11, 1),
+	(11, 5),
+	(11, 11),
+	(12, 1),
+	(12, 5),
+	(12, 11),
+	(13, 1),
+	(13, 6),
+	(14, 1),
+	(14, 6),
+	(15, 1),
+	(15, 5),
+	(15, 11),
+	(16, 1),
+	(16, 5),
+	(17, 1),
+	(18, 3),
+	(18, 6),
+	(19, 12),
+	(19, 9),
+	(20, 12),
+	(20, 6),
+	(21, 1),
+	(21, 5),
+	(21, 6),
+	(22, 5),
+	(22, 3),
+	(22, 8),
+	(23, 1),
+	(23, 5),
+	(23, 11),
+	(24, 1),
+	(24, 4),
+	(24, 9),
+	(25, 4),
+	(25, 3);
+
+
+/* ----------------------- 
+Queries Used By Demo App
+--------------------------*/
+
+/* Get All Movies */
+
+SELECT		Title, ReleaseYear Year, Runtime, Description, MovieID
+FROM 		Movies
+ORDER BY	Title;
+
+/* Search Movies */
+
+SELECT		Title, ReleaseYear Year, Runtime, Description, MovieID
+FROM		Movies
+WHERE		Title LIKE '%?%'
+ORDER BY	Title;
+
+/* Get All People */
+
+SELECT		LastName, FirstName, DATE_FORMAT(People.BirthDate, "%M %d, %Y") BirthDate, PersonID
+FROM		People
+ORDER BY	LastName;
+
+/* Search People */
+
+SELECT		LastName, FirstName, DATE_FORMAT(People.BirthDate, "%M %d, %Y") BirthDate, PersonID
+FROM		People
+WHERE		LastName LIKE '%mic%'
+OR		FirstName LIKE '%mic%'
+ORDER BY	LastName;
+
+/* Get Movie Details */
+
+SELECT		Title, Description, Movies.MovieID, Movies.ReleaseYear, Runtime,
+		p1.LastName dLastName, p1.FirstName dFirstName, p1.PersonID DirectorID,
+		p2.LastName wLastName, p2.FirstName wFirstName, p2.PersonID WriterID,
+        	Awards.MovieAward Award, Movies_Awards.Category,
+        	Movies_Awards.Year AwardYear, Genres.Genre Genre, Genres.GenreID GenreID
+FROM		Movies
+LEFT JOIN	Movies_Directors ON Movies_Directors.MovieID = Movies.MovieID
+LEFT JOIN	People AS p1 ON p1.PersonID = Movies_Directors.PersonID
+LEFT JOIN	Movies_Writers ON Movies_Writers.MovieID = Movies.MovieID
+LEFT JOIN	People AS p2 ON p2.PersonID = Movies_Writers.PersonID
+LEFT JOIN	Movies_Awards ON Movies_Awards.MovieID = Movies.MovieID
+LEFT JOIN	Awards ON Awards.MovieAwardID = Movies_Awards.MovieAwardID
+LEFT JOIN	Movies_Genres ON Movies_Genres.MovieID = Movies.MovieID
+LEFT JOIN	Genres ON Genres.GenreID = Movies_Genres.GenreID
+WHERE		Movies.MovieID = 2;
+
+/* Get Person Details */
+
+SELECT		LastName, FirstName, DATE_FORMAT(People.BirthDate, "%M %d, %Y") BirthDate,
+		m1.Title Directed, m2.Title Wrote, m1.MovieID MovieID
+FROM		People
+LEFT JOIN	Movies_Directors ON Movies_Directors.PersonID = People.PersonID
+LEFT JOIN	Movies AS m1 ON m1.MovieID = Movies_Directors.MovieID
+LEFT JOIN	Movies_Writers ON Movies_Writers.PersonID = People.PersonID
+LEFT JOIN	Movies AS m2 ON m2.MovieID = Movies_Writers.MovieID
+WHERE		People.PersonID = 1;
+
+/* Get Genre */
+
+SELECT		Title, Description, Movies.MovieID, Genres.GenreID GenreID, Genres.Genre Genre
+FROM		Movies
+LEFT JOIN	Movies_Genres ON Movies_Genres.MovieID = Movies.MovieID
+LEFT JOIN	Genres ON Genres.GenreID = Movies_Genres.GenreID
+WHERE		Genres.GenreID = 1
+ORDER BY	Title;
+
+
+--------------------------

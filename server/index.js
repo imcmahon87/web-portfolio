@@ -1,11 +1,25 @@
-const express = require('express');
+
 const db = require('./dbconfig');
+var fs = require('fs');
+var https = require('https');
+var privateKey  = fs.readFileSync('./server.key', 'utf8');
+var certificate = fs.readFileSync('./server.crt', 'utf8');
 const cors = require('cors');
 
-const app = express();
-const PORT = 3002;
+var credentials = {key: privateKey, cert: certificate};
+var express = require('express');
+var app = express();
+
 app.use(cors());
 app.use(express.json());
+
+const PORT = 3001;
+
+var httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(PORT, () => {
+    console.log('Movie database server running on port ' + PORT);
+});
 
 app.get('/getAllMovies', (req, res) => {
     db.query('SELECT    Title, ReleaseYear Year, Runtime, Description, MovieID \
@@ -109,8 +123,4 @@ app.get('/getPerson/:person', (req, res) => {
         }
         res.send(result);
     });
-});
-
-app.listen(PORT, () => {
-    console.log('Server is running on ' + PORT);
 });

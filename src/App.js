@@ -10,8 +10,6 @@ import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 
-console.log('5-8-2023 changed unmountOnExit to false');
-
 function App(props) {
 
   const location = useLocation();

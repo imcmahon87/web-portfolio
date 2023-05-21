@@ -46,9 +46,45 @@
 
 #backButton {
     cursor: pointer;
-    background-color: #ffffff;
+    background-color: #829df7;
     padding: 0.1em 0.5em;
     border-radius: 20px;
+}
+
+.demoBox {
+    margin: 3em auto 2em auto;
+    background-color: #ffffff;
+    padding: 1em;
+    border-radius: 20px;
+}
+
+.startButton {
+    margin: 0 auto;
+    background-color: #3c3cc7;
+    color: #ffffff;
+    padding: 1em;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.githubButton {
+    margin: 1.5em auto 0 auto;
+    background-color: #b4b4b4;
+    padding: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    width: fit-content;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#demoWrapper {
+    padding: 1em;
+    background-color: #ffffff;
+    margin: -90px auto 0 auto;
+    height: fit-content;
 }
 
 @media only screen and (max-width: 600px) {
@@ -81,8 +117,17 @@
         margin: 1em 0 2em 0;
     }
     .mobileScreenPic {
+        display: none;
+    }
+    .desktopScreenPic {
         width: 100%;
         height: auto;
+    }
+    #demoWrapper {
+        width: 100%;
+    }
+    .demoBox {
+        width: 100%;
     }
 }
 @media only screen and (min-width: 600px) {
@@ -122,9 +167,30 @@
         width: 60%;
         height: auto;
     }
+    .desktopScreenPic {
+        display: none;
+    }
+    #demoWrapper {
+        width: 100%;
+        padding: 0 1em 1em 1em;
+    }
+    .demoBox {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 992px) {
+    @media only screen and (orientation: landscape) {
+        #landingBanner {
+            top: -150px;
+        }
+        #contentWrapper {
+            margin-top: -50px;
+        }
+    }
+    .projectContent {
+        margin-top: 0;
+    }
     .projectBox {
         margin: 3em auto 0 auto;
         width: 100%;
@@ -149,6 +215,14 @@
         width: 30%;
         height: auto;
     }
+    #demoWrapper {
+        width: 80%;
+        min-width: 900px;
+        padding: 0 1em 1em 1em;
+    }
+    .demoBox {
+        width: 75%;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -157,5 +231,14 @@
     }
     .projectRight {
         width: 47%;
+    }
+    #demoWrapper {
+        width: 60%;
+        min-width: 1000px;
+        padding: 0 1em 1em 1em;
+    }
+
+    .demoBox {
+        width: 75%;
     }
 }

@@ -47,7 +47,7 @@
 }
 
 #landingBanner {
-    background-image: url("../images/photo-react-background.jpg");
+    background-image: url("../assets/images/photo-react-background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -218,6 +218,18 @@
         position: relative;
         top: 50%;
         margin-right: 1em;
+    }
+
+    @media only screen and (orientation: landscape) {
+        #landingBanner {
+            top: -75px;
+        }
+        #contentWrapper {
+            margin-top: -50px;
+        }
+        #homeWrapper {
+            margin-top: -90px;
+        }
     }
 }
 

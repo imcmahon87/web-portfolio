@@ -1,5 +1,5 @@
-import logoQuest from '../images/logo-questharmonics.png';
-import questScreen from '../images/mobile-quest.png';
+import screenMobile from '../assets/images/mobile-quest.png';
+import screenDesktop from '../assets/images/desktop-quest.png';
 
 
 function Questharmonics() {
@@ -11,15 +11,15 @@ function Questharmonics() {
                 </div>
             </div>
             <div id="contentWrapper">
-                <img class="projectContentImage" src={logoQuest} />
                 <div class="projectContent">
-                    <div style={{textAlign: "center"}}>
+                    <div style={{textAlign: "center", marginBottom: '3em'}}>
                         <p>Site Link: <a href="https://www.questharmonics.com">https://www.questharmonics.com</a></p>
                         <p><strong>Front-End:</strong> HTML, CSS, jQuery with jPlayer for media players</p>
                         <p><strong>Back-End:</strong> PHP, MySQL (LAMP)</p>
                     </div>
                     <div class="projectContentRight">
-                        <img class="mobileScreenPic" src={questScreen} />
+                        <img class="mobileScreenPic" src={screenMobile} />
+                        <img class="desktopScreenPic" src={screenDesktop} />
                     </div>
                     <p>
                         Quest Harmonics is an online storefront that sells licenses for digital music. 

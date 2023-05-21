@@ -1,21 +1,13 @@
 import './Home.css';
 import Footer from './Footer';
-import photoIan from '../images/photo-ian.jpg';
-import iconFrontend from '../images/icon-frontend.png';
-import iconBackend from '../images/icon-backend.png';
-import iconDatabase from '../images/icon-database.png';
-import iconSecurity from '../images/icon-security.png';
-import iconDegree from '../images/icon-degree.png';
-import iconCertificate from '../images/icon-certificate.png';
-import resume from '../images/resume.pdf';
-
-/*
-function test() {
-    console.log('teeeeeest');
-    setTimeout(() => {let something = document.getElementById('landingBanner'); console.log(something);
-                something.style.backgroundAttachment = 'fixed';}, 1000);
-}
-*/
+import photoIan from '../assets/images/photo-ian.jpg';
+import iconFrontend from '../assets/images/icon-frontend.png';
+import iconBackend from '../assets/images/icon-backend.png';
+import iconDatabase from '../assets/images/icon-database.png';
+import iconSecurity from '../assets/images/icon-security.png';
+import iconDegree from '../assets/images/icon-degree.png';
+import iconCertificate from '../assets/images/icon-certificate.png';
+import resume from '../assets/resume.pdf';
 
 function Home() {
     return (

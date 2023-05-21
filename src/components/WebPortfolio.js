@@ -1,5 +1,5 @@
-import logoReact from '../images/logo-react.png';
-import questScreen from '../images/mobile-portfolio.png';
+import screenMobile from '../assets/images/mobile-portfolio.png';
+import screenDesktop from '../assets/images/desktop-portfolio.png';
 
 
 function WebPortfolio() {
@@ -11,10 +11,10 @@ function WebPortfolio() {
                 </div>
             </div>
             <div id="contentWrapper">
-                <img class="projectContentImage" src={logoReact} />
                 <div class="projectContent">
                     <div class="projectContentRight">
-                        <img class="mobileScreenPic" src={questScreen} />
+                        <img class="mobileScreenPic" src={screenMobile} />
+                        <img class="desktopScreenPic" src={screenDesktop} />
                     </div>
                     <p>
                         This portfolio was coded in React. Because function based React components are the modern 
@@ -29,10 +29,11 @@ function WebPortfolio() {
                         traditional PHP-based websites would likely not be able to accomplish.
                     </p>
                     <p>
-                        The included demos focus on server-side code in Node and PHP. For those interested, 
+                        The included demos focus on server-side programming in Node.js. For those interested, 
                         their code (as well as the code for this website) is available on GitHub via their respective pages.
                     </p>
                 </div>
+                <a className="githubButton" target="_blank" style={{display: 'block', margin: '2em auto 1em auto'}} href="https://github.com/imcmahon87/web-portfolio">View this site's GitHub repository</a>
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 import './Skills.css';
-import resume from '../images/resume.pdf';
+import resume from '../assets/resume.pdf';
 import Footer from './Footer';
 
 function Skills() {

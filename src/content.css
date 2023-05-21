@@ -52,7 +52,7 @@
     height: 60vh;
     position: relative;
     top: -150px;
-    background-image: url("./images/photo-react-background.jpg");
+    background-image: url("./assets/images/photo-react-background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -195,6 +195,12 @@
         position: relative;
         top: 50%;
         margin-right: 1em;
+    }
+    @media only screen and (orientation: landscape) {
+        #landingBanner {
+            top: 100px;
+        }
+    
     }
 }
 

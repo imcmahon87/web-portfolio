@@ -1,6 +1,5 @@
-import logoComposer from '../images/logo-iancomposer.png';
-import questScreen from '../images/mobile-composer.png';
-
+import screenMobile from '../assets/images/mobile-composer.png';
+import screenDesktop from '../assets/images/desktop-composer.png';
 
 function IanComposer() {
     return (
@@ -11,13 +10,13 @@ function IanComposer() {
                 </div>
             </div>
             <div id="contentWrapper">
-                <img class="projectContentImage" src={logoComposer} />
                 <div class="projectContent">
-                    <div style={{textAlign: "center"}}>
+                    <div style={{textAlign: "center", marginBottom: '3em'}}>
                         <p>Site Link: <a href="https://www.iancomposer.com">https://www.iancomposer.com</a></p>
                     </div>
                     <div class="projectContentRight">
-                        <img class="mobileScreenPic" src={questScreen} />
+                        <img class="mobileScreenPic" src={screenMobile} />
+                        <img class="desktopScreenPic" src={screenDesktop} />
                     </div>
                     <p>
                         This website uses a jQuery media library plugin known as jPlayer to deliver 

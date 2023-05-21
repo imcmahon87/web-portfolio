@@ -5,11 +5,11 @@ font-family: 'Questrial', sans-serif;
 */
 @font-face {
   font-family: 'Coolvetica';
-  src: local('Coolvetica'), url(./images/coolvetica.otf) format('opentype');
+  src: local('Coolvetica'), url(./assets/coolvetica.otf) format('opentype');
 }
 @font-face {
   font-family: 'Questrial';
-  src: local('Questrial'), url(./images/Questrial-Regular.ttf) format('truetype');
+  src: local('Questrial'), url(./assets/Questrial-Regular.ttf) format('truetype');
 }
 
 * {
@@ -62,6 +62,13 @@ h5 {
   margin: 0 auto;
 }
 
+h6 {
+  width: fit-content;
+  margin: 0 auto;
+  font-family: 'Coolvetica', sans-serif;
+  padding: 1em;
+}
+
 p {
   line-height: 2em;
 }
@@ -109,7 +116,7 @@ p {
 }
 
 #parallaxBanner {
-  background-image: url("./images/photo-react-background.jpg");
+  background-image: url("./assets/images/photo-react-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -145,6 +152,9 @@ p {
   h5 {
     font-size: 1.3em;
   }
+  h6 {
+    font-size: 2.5em;
+  }
   p {
     font-size: 1.2em;
   }
@@ -170,15 +180,29 @@ p {
   h5 {
     font-size: 1.3em;
   }
+  h6 {
+    font-size: 2.5em;
+  }
   p {
     font-size: 1.2em;
   }
   #parallaxBanner {
     height: 25vh;
-}
+  }
+  @media only screen and (orientation: landscape) {
+    #parallaxBanner {
+        top: -60px;
+    }
+
+  }
 }
 
 @media only screen and (min-width: 992px) {
+  @media only screen and (orientation: landscape) {
+    #parallaxBanner {
+        top: -90px;
+    }
+  }
   h1 {
     font-size: 4em;
   }
@@ -193,6 +217,9 @@ p {
   }
   h5 {
     font-size: 1.5em;
+  }
+  h6 {
+    font-size: 2.5em;
   }
   p {
     font-size: 1.1em;

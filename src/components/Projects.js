@@ -5,9 +5,9 @@ import Footer from './Footer';
 import Questharmonics from './QuestHarmonics';
 import WebPortfolio from './WebPortfolio';
 import IanComposer from './IanComposer';
-import logoQuest from '../images/logo-questharmonics.png';
-import logoReact from '../images/logo-react.png';
-import logoComposer from '../images/logo-iancomposer.png';
+import logoQuest from '../assets/images/logo-questharmonics.png';
+import logoReact from '../assets/images/logo-react.png';
+import logoComposer from '../assets/images/logo-iancomposer.png';
 
 // Track animation so we can't initiate transition twice back to back
 let animating = 0;
@@ -104,7 +104,7 @@ function Projects() {
             <Fade show={showQuest}>
                 <div id="projectWrapper">
                     <Questharmonics />
-                    <h1 id="backButton" onClick={(e) => {
+                    <h6 id="backButton" onClick={(e) => {
                                                 if (animating === 0) {
                                                     animating = 1;
                                                     setShowQuest(showQuest => !showQuest);
@@ -117,13 +117,13 @@ function Projects() {
                                                     }, 475);
                                                 }
                                             }
-                                        }>Back</h1>
+                                        }>Back</h6>
                 </div>
             </Fade>
             <Fade show={showPortfolio}>
                 <div id="projectWrapper">
                     <WebPortfolio />
-                    <h1 id="backButton" onClick={(e) => {
+                    <h6 id="backButton" onClick={(e) => {
                                                 if (animating === 0) {
                                                     animating = 1;
                                                     setShowPortfolio(showPortfolio => !showPortfolio);
@@ -136,13 +136,13 @@ function Projects() {
                                                     }, 475);
                                                 }
                                             }
-                                        }>Back</h1>
+                                        }>Back</h6>
                 </div>
             </Fade>
             <Fade show={showComposer}>
                 <div id="projectWrapper">
                     <IanComposer />
-                    <h1 id="backButton" onClick={(e) => {
+                    <h6 id="backButton" onClick={(e) => {
                                                 if (animating === 0) {
                                                     animating = 1;
                                                     setShowComposer(showComposer => !showComposer);
@@ -155,7 +155,7 @@ function Projects() {
                                                     }, 475);
                                                 }
                                             }
-                                        }>Back</h1>
+                                        }>Back</h6>
                 </div>
             </Fade>
             <Footer />

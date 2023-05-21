@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import DataViews from './components/DataViews';
-import './App.css';
+import DataViews from './DataViews';
+import './MovieDatabase.css';
 
-function App() {
+function MovieDatabase() {
 
     const [view, setView] = useState('movielist');
     const [search, setSearch] = useState('');
@@ -53,7 +53,6 @@ function App() {
 
     return (
       <div className="wrapper">
-        <h1>Movie and Crew Database</h1>
         <h3>Search Keyword</h3>
         <form id="searchForm" onSubmit={(e) => {onSubmit(e)}}>
           <select name="searchWhat" id="searchWhat">
@@ -61,21 +60,21 @@ function App() {
             <option value="people">Directors/Writers</option>
           </select>
           <input id="inputSearch" type="text" />
-          <input className="buttonView" type="submit" value="Submit" />
+          <input className="submitButton" type="submit" value="Submit" />
           <span id="validationError"></span>
         </form>
         <div className="buttonHolder">
-        <div className="buttonView" onClick={() => {setView('movielist')}}>
-          <p>View All Movies</p>
+          <div className="buttonView" onClick={() => {setView('movielist')}}>
+            <p>View All Movies</p>
+          </div>
+          <div className="buttonView" onClick={() => {setView('personlist')}}>
+            <p>View All People</p>
+          </div>
         </div>
-        <div className="buttonView" onClick={() => {setView('personlist')}}>
-          <p>View All People</p>
-        </div>
+        <DataViews view={view} viewChanger={setView} data={search} />
       </div>
-      <DataViews view={view} viewChanger={setView} data={search} />
-    </div>
     );
 
 }
 
-export default App;
+export default MovieDatabase;

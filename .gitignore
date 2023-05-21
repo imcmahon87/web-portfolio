@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+/server/dbconfig.js
+/server/dbconfigreal.js
+/server/dbconfiglocal.js
+
 # testing
 /coverage
 
